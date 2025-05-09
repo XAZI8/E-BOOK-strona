@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Potencjalny Pieniądz - E-book</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f0fdf4, #ffffff);
+      color: #1b1b1b;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      background: white;
+      position: relative;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+    .green-corner-top, .green-corner-bottom {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background-color: #b6e5c3;
+      opacity: 0.5;
+      border-radius: 50%;
+    }
+    .green-corner-top {
+      top: -40px;
+      left: -40px;
+    }
+    .green-corner-bottom {
+      bottom: -40px;
+      right: -40px;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #14532d;
+    }
+    h2 {
+      color: #25603f;
+      margin-bottom: 16px;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .hero-text {
+      flex: 1;
+      animation: slideInLeft 1s ease;
+    }
+    .hero img {
+      max-width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: slideInRight 1s ease;
+    }
+    .btn {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #256029;
+    }
+    .sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .section {
+      flex: 1;
+      min-width: 250px;
+      animation: fadeInUp 1s ease;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+      padding: 20px 10px;
+      background-color: #f1f1f1;
+      border-top: 1px solid #ddd;
+    }
+    footer a {
+      margin: 0 8px;
+      color: #25603f;
+      text-decoration: none;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideInLeft {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="green-corner-top"></div>
+    <div class="green-corner-bottom"></div>
+
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Potencjalny Pieniądz</h1>
+        <p style="font-size: 1.2rem; margin-bottom: 20px;">E-book, który pomoże Ci zrozumieć świat finansów i odblokować drzemiący w Tobie potencjał.</p>
+        <p>Poznaj strategie budowania majątku, zarządzania finansami i osiągania celów osobistych. Ten e-book to przewodnik, który poprowadzi Cię ku finansowej niezależności i rozwoju osobistemu.</p>
+        <br>
+        <button class="btn">Kup teraz</button>
+      </div>
+      <img src="https://via.placeholder.com/280x360.png?text=Ok%C5%82adka+e-booka" alt="Okładka e-booka" />
+    </div>
+
+    <div class="sections">
+      <div class="section">
+        <h2>Co znajdziesz w środku?</h2>
+        <ul>
+          <li>Techniki zarządzania budżetem</li>
+          <li>Fundamenty inwestowania</li>
+          <li>Jak stworzyć źródła dochodu pasywnego</li>
+          <li>Mindset osoby bogacącej się</li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2>Opinie czytelników</h2>
+        <p><em>„Wreszcie książka, która mówi językiem zwykłych ludzi o pieniądzach. Polecam każdemu, kto chce coś zmienić.”</em><br> — Michał, 29 lat</p>
+        <p><em>„Motywująca, praktyczna i bardzo konkretna. Czegoś takiego szukałam!”</em><br> — Kasia, 34 lata</p>
+      </div>
+    </div>
+
+    <footer>
+      © 2024 Potencjalny Pieniądz — <a href="#">Polityka prywatności</a> | <a href="#">Regulamin</a>
+      <div style="margin-top: 10px;">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
