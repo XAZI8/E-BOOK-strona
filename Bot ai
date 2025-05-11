@@ -1,0 +1,91 @@
+import { useEffect, useRef, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Mic, SendHorizonal } from "lucide-react";
+
+export default function RicoChat() {
+  const [messages, setMessages] = useState([
+    { from: "rico", text: "W czym mogę pomóc? / How can I assist you?" },
+  ]);
+  const [input, setInput] = useState("");
+  const recognitionRef = useRef(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleSend = async () => {
+    if (!input.trim()) return;
+    const userMessage = input;
+    setMessages([...messages, { from: "user", text: userMessage }]);
+    setInput("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:5000/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage })
+      });
+
+      const data = await response.json();
+      setMessages((prev) => [...prev, { from: "rico", text: data.reply }]);
+    } catch (error) {
+      setMessages((prev) => [...prev, { from: "rico", text: "Wystąpił błąd. Spróbuj ponownie później." }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVoiceInput = () => {
+    if (!('webkitSpeechRecognition' in window)) {
+      alert("Twoja przeglądarka nie obsługuje rozpoznawania mowy.");
+      return;
+    }
+
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.lang = "pl-PL";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setInput(transcript);
+    };
+    recognition.start();
+    recognitionRef.current = recognition;
+  };
+
+  return (
+    <Card className="w-full max-w-xl mx-auto mt-10 shadow-xl">
+      <CardContent className="h-[500px] overflow-y-auto space-y-4 p-4">
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`text-sm p-2 rounded-lg max-w-[80%] ${
+              msg.from === "rico"
+                ? "bg-blue-100 text-left"
+                : "bg-green-100 text-right self-end ml-auto"
+            }`}
+          >
+            {msg.text}
+          </div>
+        ))}
+        {loading && (
+          <div className="text-sm italic text-gray-500">Rico pisze...</div>
+        )}
+      </CardContent>
+      <div className="flex items-center gap-2 p-4 border-t">
+        <Input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Napisz wiadomość / Type a message"
+          onKeyDown={(e) => e.key === "Enter" && handleSend()}
+        />
+        <Button onClick={handleSend} size="icon" disabled={loading}>
+          <SendHorizonal className="w-4 h-4" />
+        </Button>
+        <Button onClick={handleVoiceInput} size="icon">
+          <Mic className="w-4 h-4" />
+        </Button>
+      </div>
+    </Card>
+  );
+}
