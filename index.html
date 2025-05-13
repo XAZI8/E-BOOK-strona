@@ -6,170 +6,138 @@
   <title>Potencjalny Pieniądz - E-book</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f0fdf4, #ffffff);
-      color: #1b1b1b;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
     }
     .container {
-      max-width: 1100px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 60px 20px;
-      background: white;
-      position: relative;
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
-      overflow: hidden;
-      animation: fadeIn 1s ease-in;
-    }
-    .green-corner-top, .green-corner-bottom {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background-color: #b6e5c3;
-      opacity: 0.5;
-      border-radius: 50%;
-    }
-    .green-corner-top {
-      top: -40px;
-      left: -40px;
-    }
-    .green-corner-bottom {
-      bottom: -40px;
-      right: -40px;
-    }
-    h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #14532d;
-    }
-    h2 {
-      color: #25603f;
-      margin-bottom: 16px;
+      padding: 20px;
     }
     .hero {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 40px;
-      margin-bottom: 50px;
+      justify-content: space-between;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
     }
     .hero-text {
-      flex: 1;
-      animation: slideInLeft 1s ease;
+      flex: 1 1 400px;
+      padding-right: 20px;
+    }
+    .hero-text h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 1.1em;
+      line-height: 1.6;
     }
     .hero img {
-      max-width: 280px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      animation: slideInRight 1s ease;
+      flex: 1 1 300px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
     .btn {
-      background-color: #2e7d32;
-      color: white;
+      display: inline-block;
+      background-color: #28a745;
+      color: #fff;
+      padding: 12px 24px;
       border: none;
-      padding: 14px 30px;
-      font-size: 1.1rem;
-      border-radius: 8px;
+      border-radius: 4px;
+      font-size: 1em;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      text-decoration: none;
+      margin-top: 20px;
     }
     .btn:hover {
-      background-color: #256029;
-    }
-    .sections {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-bottom: 60px;
+      background-color: #218838;
     }
     .section {
-      flex: 1;
-      min-width: 250px;
-      animation: fadeInUp 1s ease;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
     }
-    ul {
-      padding-left: 20px;
+    .section h2 {
+      margin-bottom: 20px;
     }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-      padding: 20px 10px;
+    .reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .review {
       background-color: #f1f1f1;
-      border-top: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 4px;
     }
-    footer a {
-      margin: 0 8px;
-      color: #25603f;
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
+    .footer a {
+      color: #777;
+      margin: 0 10px;
       text-decoration: none;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes slideInLeft {
-      from { transform: translateX(-50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes slideInRight {
-      from { transform: translateX(50px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    .footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="green-corner-top"></div>
-    <div class="green-corner-bottom"></div>
-
     <div class="hero">
       <div class="hero-text">
         <h1>Potencjalny Pieniądz</h1>
-        <p style="font-size: 1.2rem; margin-bottom: 20px;">E-book, który pomoże Ci zrozumieć świat finansów i odblokować drzemiący w Tobie potencjał.</p>
-        <p>Poznaj strategie budowania majątku, zarządzania finansami i osiągania celów osobistych. Ten e-book to przewodnik, który poprowadzi Cię ku finansowej niezależności i rozwoju osobistemu.</p>
-        <br>
-        <button class="btn">Kup teraz</button>
+        <p>Odkryj strategie zarządzania finansami i odblokuj swój pełny potencjał. Ten e-book to Twój pierwszy krok do finansowej niezależności.</p>
+        <p><strong>Cena:</strong> 29,99 zł</p>
+        <p><strong>Dostawa:</strong> E-book zostanie dostarczony e-mailem po zakupie.</p>
+        <a href="#" class="btn">Kup teraz</a>
       </div>
-      <img src="https://via.placeholder.com/280x360.png?text=Ok%C5%82adka+e-booka" alt="Okładka e-booka" />
+      <img src="https://via.placeholder.com/300x400.png?text=Ok%C5%82adka+E-booka" alt="Okładka e-booka">
     </div>
 
-    <div class="sections">
-      <div class="section">
-        <h2>Co znajdziesz w środku?</h2>
-        <ul>
-          <li>Techniki zarządzania budżetem</li>
-          <li>Fundamenty inwestowania</li>
-          <li>Jak stworzyć źródła dochodu pasywnego</li>
-          <li>Mindset osoby bogacącej się</li>
-        </ul>
-      </div>
-      <div class="section">
-        <h2>Opinie czytelników</h2>
-        <p><em>„Wreszcie książka, która mówi językiem zwykłych ludzi o pieniądzach. Polecam każdemu, kto chce coś zmienić.”</em><br> — Michał, 29 lat</p>
-        <p><em>„Motywująca, praktyczna i bardzo konkretna. Czegoś takiego szukałam!”</em><br> — Kasia, 34 lata</p>
+    <div class="section">
+      <h2>Opinie klientów</h2>
+      <div class="reviews">
+        <div class="review">
+          <p>"Ten e-book zmienił moje podejście do finansów. Polecam każdemu!"</p>
+          <p><strong>- Anna K.</strong></p>
+        </div>
+        <div class="review">
+          <p>"Praktyczne porady i jasne wyjaśnienia. Warto było!"</p>
+          <p><strong>- Marek P.</strong></p>
+        </div>
+        <div class="review">
+          <p>"Dzięki temu e-bookowi zacząłem oszczędzać i inwestować mądrze."</p>
+          <p><strong>- Ewa L.</strong></p>
+        </div>
       </div>
     </div>
 
-    <footer>
-      © 2024 Potencjalny Pieniądz — <a href="#">Polityka prywatności</a> | <a href="#">Regulamin</a>
-      <div style="margin-top: 10px;">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-      </div>
-    </footer>
+    <div class="section">
+      <h2>Regulamin i pomoc</h2>
+      <p>Przed zakupem zapoznaj się z naszym <a href="#">regulaminem</a>. W razie pytań odwiedź sekcję <a href="#">pomoc</a> lub skontaktuj się z nami bezpośrednio.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Potencjalny Pieniądz | <a href="#">Regulamin</a> | <a href="#">Pomoc</a>
   </div>
 </body>
 </html>
+
